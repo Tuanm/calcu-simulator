@@ -1,0 +1,11 @@
+C:\Users\VI\source\repos\Calculator\bin\Release\Calculator.exe.config
+C:\Users\VI\source\repos\Calculator\bin\Release\Calculator.exe
+C:\Users\VI\source\repos\Calculator\bin\Release\Calculator.pdb
+C:\Users\VI\source\repos\Calculator\obj\Release\Calculator.csprojAssemblyReference.cache
+C:\Users\VI\source\repos\Calculator\obj\Release\Calculator.Calculator.resources
+C:\Users\VI\source\repos\Calculator\obj\Release\Calculator.PopUp.resources
+C:\Users\VI\source\repos\Calculator\obj\Release\Calculator.Properties.Resources.resources
+C:\Users\VI\source\repos\Calculator\obj\Release\Calculator.csproj.GenerateResource.cache
+C:\Users\VI\source\repos\Calculator\obj\Release\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\VI\source\repos\Calculator\obj\Release\Calculator.exe
+C:\Users\VI\source\repos\Calculator\obj\Release\Calculator.pdb
