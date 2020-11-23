@@ -34,7 +34,7 @@ namespace Calculator {
                 digit4Button, digit5Button, digit6Button,
                 digit7Button, digit8Button, digit9Button
             }; // put all printable buttons in a list,
-            // so it's easier to handle the theirs click
+            // so it's easier to handle theirs click
             foreach (Button button in printableButtons) {
                 button.Click += printableButtons_Click;
             }
