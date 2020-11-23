@@ -39,45 +39,40 @@ namespace Calculator {
         #endregion
 
         #region Methods
-        private bool IsCalculable() {
-            if (curOperator == Operator.Empty) {
-                if (screenTextBox.Text.Length == 0)
-                    return false;
-            }
-            return true;
-        }
-
         private void Calculate() {
-            try {
-                double operand = double.Parse(screenTextBox.Text);
-                switch (curOperator) {
-                    case Operator.Add:
-                        preOperand = preOperand + operand;
-                        break;
-                    case Operator.Subtract:
-                        preOperand = preOperand - operand;
-                        break;
-                    case Operator.Multiply:
-                        preOperand = preOperand * operand;
-                        break;
-                    case Operator.Divide:
-                        preOperand = preOperand / operand;
-                        break;
-                    case Operator.SquareRoot: 
-                        preOperand = Math.Sqrt(operand);
-                        break;
-                    case Operator.NSquareRoot:
-                        preOperand = Math.Pow(operand, 1 / preOperand);
-                        break;
-                    case Operator.Percentage:
-                        preOperand = operand / 100;
-                        break;
-                    case Operator.Empty:
-                        preOperand = operand;
-                        break;
-                }
-            } catch (Exception) {
-                resultTextBox.Text = "ERROR";
+            curOperatorLabel.Text = string.Empty;
+
+            if (!double.TryParse(screenTextBox.Text, out double operand)) {
+                SetDefaultDisplay();
+                hasFinished = true;
+                return;
+            }
+
+            switch (curOperator) {
+                case Operator.Add:
+                    preOperand = preOperand + operand;
+                    break;
+                case Operator.Subtract:
+                    preOperand = preOperand - operand;
+                    break;
+                case Operator.Multiply:
+                    preOperand = preOperand * operand;
+                    break;
+                case Operator.Divide:
+                    preOperand = preOperand / operand;
+                    break;
+                case Operator.SquareRoot:
+                    preOperand = Math.Sqrt(operand);
+                    break;
+                case Operator.NSquareRoot:
+                    preOperand = Math.Pow(operand, 1 / preOperand);
+                    break;
+                case Operator.Percentage:
+                    preOperand = operand / 100;
+                    break;
+                case Operator.Empty:
+                    preOperand = operand;
+                    break;
             }
         }
 
@@ -114,6 +109,7 @@ namespace Calculator {
         }
 
         private void StartFunction(int index) {
+            SetDefaultDisplay();
             switch (index) {
                 case 0:
                     SolveQuadratic();
@@ -125,10 +121,14 @@ namespace Calculator {
                     Solve2VarEquations(); // TODO
                     break;
                 case 3:
-                    Program.ForFun(n: 10, bg: true); // TODO
+                    new Calculator().Show(); // TODO
                     break;
             }
         }
         #endregion
+
+        private void Help(object sender, EventArgs e) {
+            Program.ForFun(n: 10, bg: true); // TODO
+        }
     }
 }

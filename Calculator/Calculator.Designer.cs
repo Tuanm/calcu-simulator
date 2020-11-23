@@ -52,8 +52,11 @@
             this.curFunctionLabel = new System.Windows.Forms.Label();
             this.signSwitcherButton = new System.Windows.Forms.Button();
             this.menuPanel = new System.Windows.Forms.Panel();
+            this.exitMenuLabel = new System.Windows.Forms.Label();
             this.menuLabel = new System.Windows.Forms.Label();
             this.percentageButton = new System.Windows.Forms.Button();
+            this.helpButton = new System.Windows.Forms.Button();
+            this.menuPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // screenTextBox
@@ -534,6 +537,7 @@
             // menuPanel
             // 
             this.menuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.menuPanel.Controls.Add(this.exitMenuLabel);
             this.menuPanel.Font = new System.Drawing.Font("Segoe UI Light", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuPanel.ForeColor = System.Drawing.Color.Black;
             this.menuPanel.Location = new System.Drawing.Point(495, 0);
@@ -541,6 +545,17 @@
             this.menuPanel.Size = new System.Drawing.Size(495, 500);
             this.menuPanel.TabIndex = 30;
             this.menuPanel.Visible = false;
+            // 
+            // exitMenuLabel
+            // 
+            this.exitMenuLabel.AutoSize = true;
+            this.exitMenuLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitMenuLabel.ForeColor = System.Drawing.Color.Black;
+            this.exitMenuLabel.Location = new System.Drawing.Point(0, 0);
+            this.exitMenuLabel.Name = "exitMenuLabel";
+            this.exitMenuLabel.Size = new System.Drawing.Size(35, 37);
+            this.exitMenuLabel.TabIndex = 33;
+            this.exitMenuLabel.Text = "×";
             // 
             // menuLabel
             // 
@@ -571,14 +586,32 @@
             this.percentageButton.Text = " %";
             this.percentageButton.UseVisualStyleBackColor = false;
             // 
+            // helpButton
+            // 
+            this.helpButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            this.helpButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.helpButton.FlatAppearance.BorderSize = 0;
+            this.helpButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
+            this.helpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            this.helpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpButton.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpButton.ForeColor = System.Drawing.Color.White;
+            this.helpButton.Location = new System.Drawing.Point(400, 150);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(75, 50);
+            this.helpButton.TabIndex = 33;
+            this.helpButton.Text = "HELP";
+            this.helpButton.UseVisualStyleBackColor = false;
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(495, 500);
+            this.Controls.Add(this.helpButton);
             this.Controls.Add(this.menuPanel);
-            this.Controls.Add(this.menuLabel);
             this.Controls.Add(this.curFunctionLabel);
             this.Controls.Add(this.curOperatorLabel);
             this.Controls.Add(this.memoryStatusLabel);
@@ -608,6 +641,7 @@
             this.Controls.Add(this.cancelEntryButton);
             this.Controls.Add(this.memoryRecallButton);
             this.Controls.Add(this.memoryAddButton);
+            this.Controls.Add(this.menuLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -615,6 +649,9 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Calculator";
+            this.TopMost = true;
+            this.menuPanel.ResumeLayout(false);
+            this.menuPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -653,6 +690,8 @@
         private System.Windows.Forms.Panel menuPanel;
         private System.Windows.Forms.Label menuLabel;
         private System.Windows.Forms.Button percentageButton;
+        private System.Windows.Forms.Label exitMenuLabel;
+        private System.Windows.Forms.Button helpButton;
     }
 }
 

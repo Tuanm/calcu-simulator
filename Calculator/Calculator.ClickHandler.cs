@@ -11,14 +11,10 @@ namespace Calculator {
                 SetDefault();
                 return;
             }
-
-            curOperatorLabel.Text = string.Empty;
-            if (!IsCalculable()) {
-                screenTextBox.Text = string.Empty;
-                return;
-            }
-
+            
             Calculate();
+            if (hasFinished) return; // double-check
+
             string text = screenTextBox.Text;
             expression = $"{expression}{text} = ";
             screenTextBox.Text = expression;
@@ -30,19 +26,23 @@ namespace Calculator {
         }
 
         private void solveEquation_Click(object sender, EventArgs e) {
-            if (!IsCalculable()) return;
             string text = screenTextBox.Text;
             screenTextBox.Text = string.Empty;
             int n = equation.N;
             if (!hasFinished) {
-                double a = double.Parse(text);
-                equation.A.Add(a);
-                resultTextBox.Text = equation.GetCurrentString();
+                try {
+                    double a = double.Parse(text);
+                    equation.A.Add(a);
+                    resultTextBox.Text = equation.GetCurrentString();
+                } catch (Exception) {
+                    // SetDefault();
+                }
             }
             if (equation.A.Count == n + 1) {
                 if (!hasFinished) {
                     roots = equation.Solve();
                     hasFinished = true;
+                    DisableAllButtons(except: true);
                 }
                 screenTextBox.Text = equation.ToString();
                 resultTextBox.Text = roots[0];
@@ -76,9 +76,10 @@ namespace Calculator {
             if (hasFinished) {
                 screenTextBox.Text = resultTextBox.Text;
             }
-            if (!IsCalculable()) return;
 
             Calculate();
+            if (hasFinished) return; // double-check
+            
             string text = screenTextBox.Text;
             resultTextBox.Text = preOperand.ToString();
             screenTextBox.Text = string.Empty;
@@ -92,16 +93,12 @@ namespace Calculator {
             }
 
             if (hasFinished) return;
-
-            curOperatorLabel.Text = string.Empty;
-            if (!IsCalculable()) {
-                screenTextBox.Text = string.Empty;
-                return;
-            }
-
+            
             Operator preOperator = curOperator;
             curOperator = Operator.Percentage;
             Calculate();
+            if (hasFinished) return; // double-check
+
             string text = screenTextBox.Text;
             if (preOperator == Operator.Empty) {
                 expression = $"{text}% = ";
@@ -124,13 +121,13 @@ namespace Calculator {
 
             Button button = sender as Button;
 
-            curOperatorLabel.Text = button.Text;
             if (hasFinished) {
                 screenTextBox.Text = resultTextBox.Text;
             }
-            if (!IsCalculable()) return;
-
+            
             Calculate();
+            if (hasFinished) return; // double-check
+
             string text = screenTextBox.Text;
             resultTextBox.Text = preOperand.ToString();
             screenTextBox.Text = string.Empty;
@@ -144,6 +141,7 @@ namespace Calculator {
             }
             curOperator = button.Text.Equals(operatorMultiplyButton.Text) ?
                 Operator.Multiply : Operator.Divide;
+            curOperatorLabel.Text = button.Text;
         }
 
         private void operatorAddSubButtons_Click(object sender, EventArgs e) {
@@ -153,19 +151,20 @@ namespace Calculator {
 
             Button button = sender as Button;
 
-            curOperatorLabel.Text = button.Text;
             if (hasFinished) {
                 screenTextBox.Text = resultTextBox.Text;
             }
-            if (!IsCalculable()) return;
 
             Calculate();
+            if (hasFinished) return; // double-check
+
             string text = screenTextBox.Text;
             resultTextBox.Text = preOperand.ToString();
             screenTextBox.Text = string.Empty;
             expression = $"{expression}{text}{button.Text}";
             curOperator = button.Text.Equals(operatorAddButton.Text) ?
                 Operator.Add : Operator.Subtract;
+            curOperatorLabel.Text = button.Text;
         }
 
         private void printableButtons_Click(object sender, EventArgs e) {
@@ -174,7 +173,12 @@ namespace Calculator {
                 hasFinished = false;
             }
             Button button = sender as Button;
-            screenTextBox.Text += button.Text;
+            string buttonText = button.Text;
+            string text = screenTextBox.Text;
+            if (buttonText.Equals(dotButton.Text)) {
+                if (text.Contains(buttonText)) return;
+            }
+            screenTextBox.Text += buttonText;
         }
 
         private void memoryRecallButton_Click(object sender, EventArgs e) {
@@ -186,11 +190,6 @@ namespace Calculator {
         private void memoryAddButton_Click(object sender, EventArgs e) {
             if (isSolvingEquation) {
                 return; // cannot press this button while solving equation
-            }
-
-            if (!IsCalculable()) {
-                screenTextBox.Text = string.Empty;
-                return;
             }
 
             Calculate();
@@ -246,6 +245,7 @@ namespace Calculator {
         }
 
         private void SetDefaultDisplay() {
+            EnableAllButtons();
             screenTextBox.Text = string.Empty;
             resultTextBox.Text = "0";
         }
