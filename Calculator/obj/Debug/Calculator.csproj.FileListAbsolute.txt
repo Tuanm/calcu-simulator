@@ -9,3 +9,14 @@ C:\Users\VI\source\repos\Calculator\obj\Debug\Calculator.csproj.CoreCompileInput
 C:\Users\VI\source\repos\Calculator\obj\Debug\Calculator.exe
 C:\Users\VI\source\repos\Calculator\obj\Debug\Calculator.pdb
 C:\Users\VI\source\repos\Calculator\obj\Debug\Calculator.PopUp.resources
+D:\calcu-simulator\Calculator\bin\Debug\Calculator.exe.config
+D:\calcu-simulator\Calculator\bin\Debug\Calculator.exe
+D:\calcu-simulator\Calculator\bin\Debug\Calculator.pdb
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.csprojAssemblyReference.cache
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.Calculator.resources
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.PopUp.resources
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.exe
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.pdb

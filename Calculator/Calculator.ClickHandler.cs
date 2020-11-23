@@ -117,50 +117,14 @@ namespace Calculator {
                                 // clicking some buttons may clear the textbox
         }
 
-        private void operatorAddButton_Click(object sender, EventArgs e) {
+        private void operatorMulDivButtons_Click(object sender, EventArgs e) {
             if (isSolvingEquation) {
                 return; // cannot press this button while solving equation
             }
 
-            curOperatorLabel.Text = operatorAddButton.Text;
-            if (hasFinished) {
-                screenTextBox.Text = resultTextBox.Text;
-            }
-            if (!IsCalculable()) return;
+            Button button = sender as Button;
 
-            Calculate();
-            string text = screenTextBox.Text;
-            resultTextBox.Text = preOperand.ToString();
-            screenTextBox.Text = string.Empty;
-            expression = $"{expression}{text}{operatorAddButton.Text}";
-            curOperator = Operator.Add;
-        }
-
-        private void operatorSubtractButton_Click(object sender, EventArgs e) {
-            if (isSolvingEquation) {
-                return; // cannot press this button while solving equation
-            }
-
-            curOperatorLabel.Text = operatorSubtractButton.Text;
-            if (hasFinished) {
-                screenTextBox.Text = resultTextBox.Text;
-            }
-            if (!IsCalculable()) return;
-
-            Calculate();
-            string text = screenTextBox.Text;
-            resultTextBox.Text = preOperand.ToString();
-            screenTextBox.Text = string.Empty;
-            expression = $"{expression}{text}{operatorSubtractButton.Text}";
-            curOperator = Operator.Subtract;
-        }
-
-        private void operatorMultiplyButton_Click(object sender, EventArgs e) {
-            if (isSolvingEquation) {
-                return; // cannot press this button while solving equation
-            }
-
-            curOperatorLabel.Text = operatorMultiplyButton.Text;
+            curOperatorLabel.Text = button.Text;
             if (hasFinished) {
                 screenTextBox.Text = resultTextBox.Text;
             }
@@ -173,20 +137,23 @@ namespace Calculator {
             if (curOperator == Operator.Empty
                 || curOperator == Operator.Multiply
                 || curOperator == Operator.Divide) {
-                expression = $"{expression}{text}{operatorMultiplyButton.Text}";
+                expression = $"{expression}{text}{button.Text}";
             }
             else {
-                expression = $"({expression}{text}){operatorMultiplyButton.Text}";
+                expression = $"({expression}{text}){button.Text}";
             }
-            curOperator = Operator.Multiply;
+            curOperator = button.Text.Equals(operatorMultiplyButton.Text) ?
+                Operator.Multiply : Operator.Divide;
         }
 
-        private void operatorDivideButton_Click(object sender, EventArgs e) {
+        private void operatorAddSubButtons_Click(object sender, EventArgs e) {
             if (isSolvingEquation) {
                 return; // cannot press this button while solving equation
             }
 
-            curOperatorLabel.Text = operatorDivideButton.Text;
+            Button button = sender as Button;
+
+            curOperatorLabel.Text = button.Text;
             if (hasFinished) {
                 screenTextBox.Text = resultTextBox.Text;
             }
@@ -196,15 +163,9 @@ namespace Calculator {
             string text = screenTextBox.Text;
             resultTextBox.Text = preOperand.ToString();
             screenTextBox.Text = string.Empty;
-            if (curOperator == Operator.Empty
-                || curOperator == Operator.Multiply
-                || curOperator == Operator.Divide) {
-                expression = $"{expression}{text}{operatorDivideButton.Text}";
-            }
-            else {
-                expression = $"({expression}{text}){operatorDivideButton.Text}";
-            }
-            curOperator = Operator.Divide;
+            expression = $"{expression}{text}{button.Text}";
+            curOperator = button.Text.Equals(operatorAddButton.Text) ?
+                Operator.Add : Operator.Subtract;
         }
 
         private void printableButtons_Click(object sender, EventArgs e) {

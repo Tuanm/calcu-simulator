@@ -27,16 +27,15 @@ namespace Calculator {
         }
 
         #region Fields
-        private List<Button> printableButtons;
-        private List<string> roots;
-        private Equation equation;
+        private List<string> roots; // for solving equation
+        private Equation equation; // for solving equation
 
         private double preOperand;
         private Operator curOperator;
         private string expression;
         private bool hasFinished;
         private bool isSolvingEquation;
-        private double memory;
+        private double memory; // saved by pressing M+; press MR to recall
         #endregion
 
         #region Methods
@@ -104,6 +103,16 @@ namespace Calculator {
             resultTextBox.Text = equation.GetCurrentString();
         }
 
+        // TODO
+        private void Solve2VarEquations() {
+            isSolvingEquation = true;
+            hasFinished = false;
+            calculateButton.Click -= calculateButton_Click;
+            calculateButton.Click += solveEquation_Click;
+            curFunctionLabel.Text = "2 EQNs";
+            resultTextBox.Text = "UPDATING...";
+        }
+
         private void StartFunction(int index) {
             switch (index) {
                 case 0:
@@ -113,6 +122,9 @@ namespace Calculator {
                     SolveCubicEquation(); // TODO
                     break;
                 case 2:
+                    Solve2VarEquations(); // TODO
+                    break;
+                case 3:
                     Program.ForFun(n: 10, bg: true); // TODO
                     break;
             }

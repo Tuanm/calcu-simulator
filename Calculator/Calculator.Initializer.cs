@@ -22,28 +22,35 @@ namespace Calculator {
             squareRootFunctionButton.Click += squareRootFunctionButton_Click;
             nSquareRootFunctionButton.Click += nSquareRootFunctionButton_Click;
             percentageButton.Click += percentageButton_Click;
-            operatorAddButton.Click += operatorAddButton_Click;
-            operatorSubtractButton.Click += operatorSubtractButton_Click;
-            operatorMultiplyButton.Click += operatorMultiplyButton_Click;
-            operatorDivideButton.Click += operatorDivideButton_Click;
+            operatorAddButton.Click += operatorAddSubButtons_Click;
+            operatorSubtractButton.Click += operatorAddSubButtons_Click;
+            operatorMultiplyButton.Click += operatorMulDivButtons_Click;
+            operatorDivideButton.Click += operatorMulDivButtons_Click;
         }
 
         private void InitPrintableButtons() {
-            printableButtons = new List<Button>() {
+            List<Button> printableButtons = new List<Button>() {
                 digit0Button, dotButton,
                 digit1Button, digit2Button, digit3Button,
                 digit4Button, digit5Button, digit6Button,
                 digit7Button, digit8Button, digit9Button
             };
 
-            negativeNumberButton.Click += (object sender, EventArgs e) => {
+            signSwitcherButton.Click += (object sender, EventArgs e) => {
                 if (hasFinished) {
                     screenTextBox.Text = string.Empty;
                     hasFinished = false;
                 }
                 string text = screenTextBox.Text;
                 string sqrtSymbol = squareRootFunctionButton.Text;
-                screenTextBox.Text = "-";
+                if (!IsCalculable()) {
+                    screenTextBox.Text = "-";
+                }
+                else {
+                    double number = -double.Parse(text);
+                    screenTextBox.Text = number.ToString();
+                }
+
                 if (curOperator != Operator.SquareRoot) {
                     expression = string.Empty;
                     curOperatorLabel.Text = string.Empty;
@@ -64,13 +71,23 @@ namespace Calculator {
             };
             menuPanel.Location = new Point(-ClientSize.Width, 0);
             menuPanel.Visible = true;
+            menuPanel.AutoScroll = true;
             menuPanel.Click += (object sender, EventArgs e) => {
                 ShowUpMenu(-5);
             };
 
             AddFunctionToMenu("Quadratic");
             AddFunctionToMenu("Cubic Equation");
+            AddFunctionToMenu("2-Var Equations");
             AddFunctionToMenu("Box Drawing");
+        }
+
+        private void DisableAllButtons() {
+            foreach (Control control in this.Controls) {
+                if (control is Button) {
+                    control.Enabled = !control.Enabled;
+                }
+            }
         }
 
         private void ShowUpMenu(int flag) {
@@ -92,7 +109,7 @@ namespace Calculator {
             label.Text = text;
             label.AutoSize = true;
             label.Left = menuPanel.Width / 2 - label.Width / 2;
-            label.Top = int.Parse($"{Math.Floor(label.Height * (index + 1) * 1.5)}");
+            label.Top = int.Parse($"{Math.Floor(label.Height * (index + 0.5) * 1.5)}");
             label.Click += (object sender, EventArgs e) => {
                 ShowUpMenu(-5);
                 StartFunction(index);

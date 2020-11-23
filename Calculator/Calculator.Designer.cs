@@ -50,7 +50,7 @@
             this.squareRootFunctionButton = new System.Windows.Forms.Button();
             this.nSquareRootFunctionButton = new System.Windows.Forms.Button();
             this.curFunctionLabel = new System.Windows.Forms.Label();
-            this.negativeNumberButton = new System.Windows.Forms.Button();
+            this.signSwitcherButton = new System.Windows.Forms.Button();
             this.menuPanel = new System.Windows.Forms.Panel();
             this.menuLabel = new System.Windows.Forms.Label();
             this.percentageButton = new System.Windows.Forms.Button();
@@ -513,23 +513,23 @@
             this.curFunctionLabel.Size = new System.Drawing.Size(0, 13);
             this.curFunctionLabel.TabIndex = 28;
             // 
-            // negativeNumberButton
+            // signSwitcherButton
             // 
-            this.negativeNumberButton.BackColor = System.Drawing.Color.White;
-            this.negativeNumberButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.negativeNumberButton.FlatAppearance.BorderSize = 0;
-            this.negativeNumberButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
-            this.negativeNumberButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.negativeNumberButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.negativeNumberButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.negativeNumberButton.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.negativeNumberButton.ForeColor = System.Drawing.Color.Black;
-            this.negativeNumberButton.Location = new System.Drawing.Point(210, 430);
-            this.negativeNumberButton.Name = "negativeNumberButton";
-            this.negativeNumberButton.Size = new System.Drawing.Size(75, 50);
-            this.negativeNumberButton.TabIndex = 29;
-            this.negativeNumberButton.Text = "-";
-            this.negativeNumberButton.UseVisualStyleBackColor = false;
+            this.signSwitcherButton.BackColor = System.Drawing.Color.White;
+            this.signSwitcherButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.signSwitcherButton.FlatAppearance.BorderSize = 0;
+            this.signSwitcherButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
+            this.signSwitcherButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.signSwitcherButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.signSwitcherButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.signSwitcherButton.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signSwitcherButton.ForeColor = System.Drawing.Color.Black;
+            this.signSwitcherButton.Location = new System.Drawing.Point(210, 430);
+            this.signSwitcherButton.Name = "signSwitcherButton";
+            this.signSwitcherButton.Size = new System.Drawing.Size(75, 50);
+            this.signSwitcherButton.TabIndex = 29;
+            this.signSwitcherButton.Text = "+/-";
+            this.signSwitcherButton.UseVisualStyleBackColor = false;
             // 
             // menuPanel
             // 
@@ -585,7 +585,7 @@
             this.Controls.Add(this.resultTextBox);
             this.Controls.Add(this.screenTextBox);
             this.Controls.Add(this.percentageButton);
-            this.Controls.Add(this.negativeNumberButton);
+            this.Controls.Add(this.signSwitcherButton);
             this.Controls.Add(this.nSquareRootFunctionButton);
             this.Controls.Add(this.squareRootFunctionButton);
             this.Controls.Add(this.operatorAddButton);
@@ -649,7 +649,7 @@
         private System.Windows.Forms.Button squareRootFunctionButton;
         private System.Windows.Forms.Button nSquareRootFunctionButton;
         private System.Windows.Forms.Label curFunctionLabel;
-        private System.Windows.Forms.Button negativeNumberButton;
+        private System.Windows.Forms.Button signSwitcherButton;
         private System.Windows.Forms.Panel menuPanel;
         private System.Windows.Forms.Label menuLabel;
         private System.Windows.Forms.Button percentageButton;
