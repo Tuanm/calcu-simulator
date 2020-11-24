@@ -27,7 +27,6 @@ namespace Calculator {
 
             if (d == 0) {
                 if (dx == 0 && dy == 0) {
-                    // TODO
                     roots.Add($"All Numbers");
                 }
                 else {

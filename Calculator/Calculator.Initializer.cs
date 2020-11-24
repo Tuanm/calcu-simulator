@@ -88,8 +88,10 @@ namespace Calculator {
             AddFunctionToMenu("Cubic Equation");
             AddFunctionToMenu("2-Var Equations");
             AddFunctionToMenu("Box Drawing");
+            AddFunctionToMenu("Polish Notation");
             // Add more functions to menu here...
 
+            // AddFunctionToMenu(""); // used when there're too many controls on panel
             helpButton.Click += Help;
         }
 
@@ -104,13 +106,11 @@ namespace Calculator {
             helpButton.Enabled = true;
             memoryRecallButton.Enabled = true;
             allCancelButton.Enabled = true; // button AC cannot be disabled
-            
+            allCancelButton.Select();
+
             if (except) {
                 calculateButton.Enabled = true; // keep it for some reasons
                 calculateButton.Select();
-            }
-            else {
-                helpButton.Select(); // nothing else to select
             }
         }
 

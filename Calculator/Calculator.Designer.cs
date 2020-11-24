@@ -101,7 +101,7 @@
             this.memoryAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.memoryAddButton.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memoryAddButton.ForeColor = System.Drawing.Color.Black;
-            this.memoryAddButton.Location = new System.Drawing.Point(20, 150);
+            this.memoryAddButton.Location = new System.Drawing.Point(115, 150);
             this.memoryAddButton.Name = "memoryAddButton";
             this.memoryAddButton.Size = new System.Drawing.Size(75, 50);
             this.memoryAddButton.TabIndex = 2;
@@ -119,7 +119,7 @@
             this.memoryRecallButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.memoryRecallButton.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memoryRecallButton.ForeColor = System.Drawing.Color.Black;
-            this.memoryRecallButton.Location = new System.Drawing.Point(115, 150);
+            this.memoryRecallButton.Location = new System.Drawing.Point(210, 150);
             this.memoryRecallButton.Name = "memoryRecallButton";
             this.memoryRecallButton.Size = new System.Drawing.Size(75, 50);
             this.memoryRecallButton.TabIndex = 3;
@@ -137,7 +137,7 @@
             this.cancelEntryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelEntryButton.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelEntryButton.ForeColor = System.Drawing.Color.Black;
-            this.cancelEntryButton.Location = new System.Drawing.Point(210, 150);
+            this.cancelEntryButton.Location = new System.Drawing.Point(305, 150);
             this.cancelEntryButton.Name = "cancelEntryButton";
             this.cancelEntryButton.Size = new System.Drawing.Size(75, 50);
             this.cancelEntryButton.TabIndex = 4;
@@ -155,7 +155,7 @@
             this.allCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.allCancelButton.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.allCancelButton.ForeColor = System.Drawing.Color.White;
-            this.allCancelButton.Location = new System.Drawing.Point(305, 150);
+            this.allCancelButton.Location = new System.Drawing.Point(400, 150);
             this.allCancelButton.Name = "allCancelButton";
             this.allCancelButton.Size = new System.Drawing.Size(75, 50);
             this.allCancelButton.TabIndex = 5;
@@ -597,7 +597,7 @@
             this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.helpButton.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.helpButton.ForeColor = System.Drawing.Color.White;
-            this.helpButton.Location = new System.Drawing.Point(400, 150);
+            this.helpButton.Location = new System.Drawing.Point(20, 150);
             this.helpButton.Name = "helpButton";
             this.helpButton.Size = new System.Drawing.Size(75, 50);
             this.helpButton.TabIndex = 33;
@@ -610,7 +610,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(495, 500);
-            this.Controls.Add(this.helpButton);
             this.Controls.Add(this.menuPanel);
             this.Controls.Add(this.curFunctionLabel);
             this.Controls.Add(this.curOperatorLabel);
@@ -642,6 +641,7 @@
             this.Controls.Add(this.memoryRecallButton);
             this.Controls.Add(this.memoryAddButton);
             this.Controls.Add(this.menuLabel);
+            this.Controls.Add(this.helpButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

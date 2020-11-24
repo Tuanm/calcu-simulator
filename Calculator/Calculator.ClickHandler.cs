@@ -259,6 +259,7 @@ namespace Calculator {
             SetDefaultValue();
             SetDefaultDisplay();
             SetDefaultTaskbarDisplay();
+            this.Refresh();
         }
 
         private void SetDefaultValue() {
