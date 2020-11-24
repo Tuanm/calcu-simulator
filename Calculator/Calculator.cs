@@ -29,6 +29,7 @@ namespace Calculator {
         #region Fields
         private List<string> roots; // for solving equation
         private Equation equation; // for solving equation
+        private TwoVarEquations equations; // for solving 2-var equations
 
         private double preOperand;
         private Operator curOperator;
@@ -103,14 +104,14 @@ namespace Calculator {
             resultTextBox.Text = equation.GetCurrentString();
         }
 
-        // TODO
         private void Solve2VarEquations() {
             isSolvingEquation = true;
             hasFinished = false;
             calculateButton.Click -= calculateButton_Click;
-            calculateButton.Click += solveEquation_Click;
+            calculateButton.Click += solve2VarEquations_Click;
             curFunctionLabel.Text = "2 EQNs";
-            resultTextBox.Text = "UPDATING...";
+            equations = new TwoVarEquations();
+            resultTextBox.Text = equations.ToString();
         }
 
         private void StartFunction(int index) {
@@ -120,7 +121,7 @@ namespace Calculator {
                     SolveQuadratic();
                     break;
                 case 1:
-                    SolveCubicEquation(); // TODO
+                    SolveCubicEquation();
                     break;
                 case 2:
                     Solve2VarEquations(); // TODO

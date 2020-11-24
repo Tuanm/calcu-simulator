@@ -53,6 +53,33 @@ namespace Calculator {
             }
         }
 
+        private void solve2VarEquations_Click(object sender, EventArgs e) {
+            string text = screenTextBox.Text;
+            screenTextBox.Text = string.Empty;
+            if (!hasFinished) {
+                try {
+                    double a = double.Parse(text);
+                    equations.A.Add(a);
+                    resultTextBox.Text = equations.ToString();
+                } catch (Exception) {
+                    // SetDefault();
+                }
+            }
+            if (equations.A.Count == equations.N) {
+                if (!hasFinished) {
+                    roots = equations.Solve();
+                    hasFinished = true;
+                    DisableAllButtons(except: true);
+                }
+                screenTextBox.Text = equations.ToString();
+                resultTextBox.Text = roots[0];
+                roots.RemoveAt(0);
+                if (roots.Count == 0) {
+                    ResetCalculateButton();
+                }
+            }
+        }
+
         private void squareRootFunctionButton_Click(object sender, EventArgs e) {
             if (isSolvingEquation) {
                 return; // cannot press this button while solving equation
@@ -224,6 +251,7 @@ namespace Calculator {
         private void ResetCalculateButton() {
             isSolvingEquation = false;
             calculateButton.Click -= solveEquation_Click;
+            calculateButton.Click -= solve2VarEquations_Click;
             calculateButton.Click += calculateButton_Click;
         }
 

@@ -102,6 +102,7 @@ namespace Calculator {
             }
 
             helpButton.Enabled = true;
+            memoryRecallButton.Enabled = true;
             allCancelButton.Enabled = true; // button AC cannot be disabled
             
             if (except) {
