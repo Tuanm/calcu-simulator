@@ -81,9 +81,10 @@ namespace Calculator {
             if (hasFinished) return; // double-check
             
             string text = screenTextBox.Text;
+            preOperand = (int)preOperand;
             resultTextBox.Text = preOperand.ToString();
             screenTextBox.Text = string.Empty;
-            expression = $"({expression}{text}){symbol}";
+            expression = $"[{expression}{text}]{symbol}";
             curOperator = Operator.NSquareRoot;
         }
 
@@ -95,6 +96,7 @@ namespace Calculator {
             if (hasFinished) return;
             
             Operator preOperator = curOperator;
+            Calculate();
             curOperator = Operator.Percentage;
             Calculate();
             if (hasFinished) return; // double-check

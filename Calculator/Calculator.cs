@@ -65,10 +65,15 @@ namespace Calculator {
                     preOperand = Math.Sqrt(operand);
                     break;
                 case Operator.NSquareRoot:
-                    preOperand = Math.Pow(operand, 1 / preOperand);
+                    if (preOperand % 2 != 0) {
+                        if (operand < 0) {
+                            preOperand = -Math.Pow(-operand, 1 / preOperand);
+                        }
+                    }
+                    else preOperand = Math.Pow(operand, 1 / preOperand);
                     break;
                 case Operator.Percentage:
-                    preOperand = operand / 100;
+                    preOperand = preOperand / 100;
                     break;
                 case Operator.Empty:
                     preOperand = operand;
