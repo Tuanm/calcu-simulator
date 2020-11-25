@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -14,10 +15,18 @@ namespace Calculator {
         /// </summary>
         [STAThread]
         static void Main() {
+
+            if (Environment.OSVersion.Version.Major >= 6) {
+                SetProcessDPIAware();
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Calculator());
         }
+
+        [DllImport("User32.dll")]
+        private static extern bool SetProcessDPIAware();
 
         public static void ForFun(int n = 5, int sleep = 0, bool bg = false) {
             int width = 1200;

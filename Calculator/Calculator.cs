@@ -115,7 +115,7 @@ namespace Calculator {
         }
 
         private void StartFunction(int index) {
-            SetDefaultDisplay();
+            SetDefault();
             switch (index) {
                 case 0:
                     SolveQuadratic();

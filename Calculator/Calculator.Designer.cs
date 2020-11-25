@@ -55,7 +55,7 @@
             this.exitMenuLabel = new System.Windows.Forms.Label();
             this.menuLabel = new System.Windows.Forms.Label();
             this.percentageButton = new System.Windows.Forms.Button();
-            this.helpButton = new System.Windows.Forms.Button();
+            this.memorySubtractButton = new System.Windows.Forms.Button();
             this.menuPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -586,28 +586,28 @@
             this.percentageButton.Text = " %";
             this.percentageButton.UseVisualStyleBackColor = false;
             // 
-            // helpButton
+            // memorySubtractButton
             // 
-            this.helpButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
-            this.helpButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.helpButton.FlatAppearance.BorderSize = 0;
-            this.helpButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
-            this.helpButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
-            this.helpButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.helpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.helpButton.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.helpButton.ForeColor = System.Drawing.Color.White;
-            this.helpButton.Location = new System.Drawing.Point(20, 150);
-            this.helpButton.Name = "helpButton";
-            this.helpButton.Size = new System.Drawing.Size(75, 50);
-            this.helpButton.TabIndex = 33;
-            this.helpButton.Text = "HELP";
-            this.helpButton.UseVisualStyleBackColor = false;
+            this.memorySubtractButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.memorySubtractButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.memorySubtractButton.FlatAppearance.BorderSize = 0;
+            this.memorySubtractButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
+            this.memorySubtractButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.memorySubtractButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.memorySubtractButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.memorySubtractButton.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.memorySubtractButton.ForeColor = System.Drawing.Color.Black;
+            this.memorySubtractButton.Location = new System.Drawing.Point(20, 150);
+            this.memorySubtractButton.Name = "memorySubtractButton";
+            this.memorySubtractButton.Size = new System.Drawing.Size(75, 50);
+            this.memorySubtractButton.TabIndex = 33;
+            this.memorySubtractButton.Text = "M-";
+            this.memorySubtractButton.UseVisualStyleBackColor = false;
             // 
             // Calculator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(495, 500);
             this.Controls.Add(this.menuPanel);
@@ -641,7 +641,7 @@
             this.Controls.Add(this.memoryRecallButton);
             this.Controls.Add(this.memoryAddButton);
             this.Controls.Add(this.menuLabel);
-            this.Controls.Add(this.helpButton);
+            this.Controls.Add(this.memorySubtractButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -691,7 +691,7 @@
         private System.Windows.Forms.Label menuLabel;
         private System.Windows.Forms.Button percentageButton;
         private System.Windows.Forms.Label exitMenuLabel;
-        private System.Windows.Forms.Button helpButton;
+        private System.Windows.Forms.Button memorySubtractButton;
     }
 }
 

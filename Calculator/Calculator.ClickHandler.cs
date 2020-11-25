@@ -228,8 +228,8 @@ namespace Calculator {
             }
         }
 
-        // store stuff to memory if it's non-zero; otherwise, get it out from memory
-        private void memoryAddButton_Click(object sender, EventArgs e) {
+        // add stuff to memory
+        private void memoryStoreButton_Click(object sender, EventArgs e) {
             if (isSolvingEquation) {
                 return; // cannot press this button while solving equation
             }
@@ -237,7 +237,13 @@ namespace Calculator {
             Calculate();
             screenTextBox.Text = string.Empty;
             resultTextBox.Text = preOperand.ToString();
-            memory = preOperand;
+            Button button = sender as Button;
+            if (button.Text.Equals(memoryAddButton.Text)) {
+                memory += preOperand;
+            }
+            else {
+                memory -= preOperand;
+            }
             if (memory != 0) {
                 memoryStatusLabel.Text = "M"; // display a shit on the screen
                                              // that stupid users can realize

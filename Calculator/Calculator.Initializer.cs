@@ -14,7 +14,8 @@ namespace Calculator {
             allCancelButton.Select();
             allCancelButton.Click += allCancelButton_Click;
             cancelEntryButton.Click += cancelEntryButton_Click;
-            memoryAddButton.Click += memoryAddButton_Click;
+            memoryAddButton.Click += memoryStoreButton_Click;
+            memorySubtractButton.Click += memoryStoreButton_Click;
             memoryRecallButton.Click += memoryRecallButton_Click;
             calculateButton.Click += calculateButton_Click;
             squareRootFunctionButton.Click += squareRootFunctionButton_Click;
@@ -92,7 +93,6 @@ namespace Calculator {
             // Add more functions to menu here...
 
             // AddFunctionToMenu(""); // used when there're too many controls on panel
-            helpButton.Click += Help;
         }
 
         // don't ask me why the hell we need to disable all buttons
@@ -103,7 +103,6 @@ namespace Calculator {
                 }
             }
 
-            helpButton.Enabled = true;
             memoryRecallButton.Enabled = true;
             allCancelButton.Enabled = true; // button AC cannot be disabled
             allCancelButton.Select();
