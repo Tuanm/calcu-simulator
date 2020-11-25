@@ -4,14 +4,14 @@
 namespace Calculator {
     class TwoVarEquations {
 
-        public List<double> A;
+        public List<double> A; // coefficient list
         public int N {
             get;
         }
 
         public TwoVarEquations() {
             A = new List<double>();
-            N = 6;
+            N = 6; // 6 coefficients
         }
 
         public List<string> Solve() {
@@ -100,6 +100,8 @@ namespace Calculator {
             return text;
         }
 
+        // symbols from Wikipedia
+        // source: https://en.wikipedia.org/wiki/List_of_Unicode_characters#Superscripts_and_Subscripts
         private string[] timeSymbols = { "₍₁₎", "₍₂₎" };
     }
 }

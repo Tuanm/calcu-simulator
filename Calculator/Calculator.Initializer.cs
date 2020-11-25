@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace Calculator {
     partial class Calculator {
         private void InitFields() {
-            SetDefault();
+            SetDefault(); // yes, set all stuffs to their default
         }
 
         private void InitActionButtons() {
@@ -34,7 +34,7 @@ namespace Calculator {
                 digit4Button, digit5Button, digit6Button,
                 digit7Button, digit8Button, digit9Button
             }; // put all printable buttons in a list,
-            // so it's easier to handle theirs click
+            // so it's easier to handle their click
             foreach (Button button in printableButtons) {
                 button.Click += printableButtons_Click;
             }
@@ -71,7 +71,7 @@ namespace Calculator {
                 ShowUpMenu(1);
             };
             menuPanel.Size = new Size(Width * 3 / 4, Height);
-            menuPanel.Location = new Point(-menuPanel.Width, 0);
+            menuPanel.Location = new Point(-menuPanel.Width, 0); // hidden
             menuPanel.Visible = true;
             menuPanel.AutoScroll = true;
             exitMenuLabel.Click += (object sender, EventArgs e) => {
@@ -109,11 +109,12 @@ namespace Calculator {
             allCancelButton.Select();
 
             if (except) {
-                calculateButton.Enabled = true; // keep it for some reasons
+                calculateButton.Enabled = true; // keep it enabled for some reasons
                 calculateButton.Select();
             }
         }
 
+        // as its name
         private void EnableAllButtons() {
             foreach (Control control in this.Controls) {
                 if (control is Button) {
@@ -124,16 +125,16 @@ namespace Calculator {
             allCancelButton.Select();
         }
 
-        // hide all controls in form
-        private void HideAllControls() {
+        // hide/show all controls in form
+        private void SwitchVisibility() {
             foreach (Control control in this.Controls) {
-                control.Visible = false;
+                control.Visible = !control.Visible;
             }
 
-            menuPanel.Visible = true;
-            helpButton.Visible = true;
+            allCancelButton.Visible = true; // button AC is always visible
         }
 
+        // display or hide the menu
         private void ShowUpMenu(int flag) {
             int current = flag > 0 ? -menuPanel.Width : 0;
             int target = current + flag * menuPanel.Width;
@@ -155,13 +156,14 @@ namespace Calculator {
             // this.Refresh();
         }
 
+        // add a function to menu, and set its clicking event
         private void AddFunctionToMenu(string text) {
             int index = menuPanel.Controls.Count;
             Label label = new Label();
             menuPanel.Controls.Add(label);
             label.Text = text;
             label.AutoSize = true;
-            label.Left = menuPanel.Width / 2 - label.Width / 2;
+            label.Left = menuPanel.Width / 2 - label.Width / 2; // senter to screen
             label.Top = int.Parse($"{Math.Floor(label.Height * index * 1.25)}");
             label.Click += (object sender, EventArgs e) => {
                 ShowUpMenu(-5);

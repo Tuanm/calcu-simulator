@@ -17,13 +17,12 @@ namespace Calculator {
             this.A = new List<double>();
         }
 
-        // Return a list of solution strings
+        // Return a list of solution as strings
         public List<string> Solve() {
             if (N == 2) {
                 return SolveQuadratic(A);
             }
 
-            // TODO
             if (N == 3) {
 
                 // cubic equation ax^3 + bx^2 + cx + d = 0
@@ -44,10 +43,13 @@ namespace Calculator {
                     return X;
                 }
 
-                double x = 0;
+                double x = 0; // the real root
 
                 // delta = b^2 - 3ac
                 double delta = b * b - 3 * a * c;
+
+                // ok, don't ask me about the things under
+                // all stuffs are availble on Wikipedia or other sources
 
                 if (delta == 0) {
                     double delta_ = b * b * b - 27 * a * a * d;

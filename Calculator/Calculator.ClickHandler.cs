@@ -5,10 +5,10 @@ using System.Windows.Forms;
 namespace Calculator {
     partial class Calculator {
 
-        // Calculate the expression, and display the result
+        // calculate the expression, and display the result (button ='s default clicking event)
         private void calculateButton_Click(object sender, EventArgs e) {
             if (hasFinished) {
-                SetDefault();
+                SetDefault(); // if it's finished, clear the textbox
                 return;
             }
             
@@ -22,9 +22,10 @@ namespace Calculator {
             expression = string.Empty;
             curOperator = Operator.Empty;
             hasFinished = true; // set it to true,
-                                // clicking some buttons may clear the textbox
+                               // clicking some buttons may clear the textbox
         }
 
+        // what happens when clicking button = (while solving equation)
         private void solveEquation_Click(object sender, EventArgs e) {
             string text = screenTextBox.Text;
             screenTextBox.Text = string.Empty;
@@ -42,7 +43,8 @@ namespace Calculator {
                 if (!hasFinished) {
                     roots = equation.Solve();
                     hasFinished = true;
-                    DisableAllButtons(except: true);
+                    DisableAllButtons(except: true); // let users be able to click
+                                                    // a few buttons
                 }
                 screenTextBox.Text = equation.ToString();
                 resultTextBox.Text = roots[0];
@@ -53,6 +55,7 @@ namespace Calculator {
             }
         }
 
+        // what happens when clicking button = (while solving 2-var equations)
         private void solve2VarEquations_Click(object sender, EventArgs e) {
             string text = screenTextBox.Text;
             screenTextBox.Text = string.Empty;
@@ -69,7 +72,8 @@ namespace Calculator {
                 if (!hasFinished) {
                     roots = equations.Solve();
                     hasFinished = true;
-                    DisableAllButtons(except: true);
+                    DisableAllButtons(except: true); // let users be able to click
+                                                    // a few buttons
                 }
                 screenTextBox.Text = equations.ToString();
                 resultTextBox.Text = roots[0];
@@ -80,6 +84,7 @@ namespace Calculator {
             }
         }
 
+        // as its name
         private void squareRootFunctionButton_Click(object sender, EventArgs e) {
             if (isSolvingEquation) {
                 return; // cannot press this button while solving equation
@@ -93,6 +98,7 @@ namespace Calculator {
             curOperator = Operator.SquareRoot;
         }
 
+        // as its name
         private void nSquareRootFunctionButton_Click(object sender, EventArgs e) {
             if (isSolvingEquation) {
                 return; // cannot press this button while solving equation
@@ -115,6 +121,7 @@ namespace Calculator {
             curOperator = Operator.NSquareRoot;
         }
 
+        // what happens when clicking button %
         private void percentageButton_Click(object sender, EventArgs e) {
             if (isSolvingEquation) {
                 return; // cannot press this button while solving equation
@@ -123,9 +130,9 @@ namespace Calculator {
             if (hasFinished) return;
             
             Operator preOperator = curOperator;
-            Calculate();
+            Calculate(); // get pre-operand
             curOperator = Operator.Percentage;
-            Calculate();
+            Calculate(); // finish calculating
             if (hasFinished) return; // double-check
 
             string text = screenTextBox.Text;
@@ -140,9 +147,10 @@ namespace Calculator {
             expression = string.Empty;
             curOperator = Operator.Empty;
             hasFinished = true; // set it to true,
-                                // clicking some buttons may clear the textbox
+                               // clicking some buttons may clear the textbox
         }
 
+        // what happens when clicking button * or button /
         private void operatorMulDivButtons_Click(object sender, EventArgs e) {
             if (isSolvingEquation) {
                 return; // cannot press this button while solving equation
@@ -173,6 +181,7 @@ namespace Calculator {
             curOperatorLabel.Text = button.Text;
         }
 
+        // what happens when clicking button + or button -
         private void operatorAddSubButtons_Click(object sender, EventArgs e) {
             if (isSolvingEquation) {
                 return; // cannot press this button while solving equation
@@ -196,6 +205,7 @@ namespace Calculator {
             curOperatorLabel.Text = button.Text;
         }
 
+        // just print whatever button's text to screen
         private void printableButtons_Click(object sender, EventArgs e) {
             if (hasFinished) {
                 screenTextBox.Text = string.Empty;
@@ -205,17 +215,20 @@ namespace Calculator {
             string buttonText = button.Text;
             string text = screenTextBox.Text;
             if (buttonText.Equals(dotButton.Text)) {
-                if (text.Contains(buttonText)) return;
+                if (text.Contains(buttonText)) return; // cannot have more than
+                                                      // one dot on the screen
             }
             screenTextBox.Text += buttonText;
         }
 
+        // load stuff from memory if it exists
         private void memoryRecallButton_Click(object sender, EventArgs e) {
             if (memory != 0) {
                 screenTextBox.Text = memory.ToString();
             }
         }
 
+        // store stuff to memory if it's non-zero; otherwise, get it out from memory
         private void memoryAddButton_Click(object sender, EventArgs e) {
             if (isSolvingEquation) {
                 return; // cannot press this button while solving equation
@@ -226,28 +239,37 @@ namespace Calculator {
             resultTextBox.Text = preOperand.ToString();
             memory = preOperand;
             if (memory != 0) {
-                memoryStatusLabel.Text = "M";
+                memoryStatusLabel.Text = "M"; // display a shit on the screen
+                                             // that stupid users can realize
+                                            // there's stuff in memory
             }
             else {
-                memoryStatusLabel.Text = string.Empty;
+                memoryStatusLabel.Text = string.Empty; // just remove the shit
+                                                      // we added before
             }
         }
 
+        // what happens when clicking button AC
         private void allCancelButton_Click(object sender, EventArgs e) {
-            SetDefault();
+            SetDefault(); // it's the only button AC's usefulness
         }
 
+        // what happens when clicking button CE
         private void cancelEntryButton_Click(object sender, EventArgs e) {
             if (hasFinished) {
                 screenTextBox.Text = string.Empty;
                 return;
             }
+
             string text = screenTextBox.Text;
             if (text.Length > 0) {
-                screenTextBox.Text = text.Substring(0, text.Length - 1);
+                screenTextBox.Text
+                    = text.Substring(0, text.Length - 1); // just remove the last
+                                                         // character on the screen
             }
         }
 
+        // set button ='s click event to default
         private void ResetCalculateButton() {
             isSolvingEquation = false;
             calculateButton.Click -= solveEquation_Click;
@@ -255,6 +277,7 @@ namespace Calculator {
             calculateButton.Click += calculateButton_Click;
         }
 
+        // set all controls to default
         private void SetDefault() {
             SetDefaultValue();
             SetDefaultDisplay();
@@ -262,6 +285,7 @@ namespace Calculator {
             this.Refresh();
         }
 
+        // set all fields to their default value
         private void SetDefaultValue() {
             if (isSolvingEquation) {
                 SetDefaultTaskbarDisplay();
@@ -275,12 +299,14 @@ namespace Calculator {
             curOperator = Operator.Empty;
         }
 
+        // clear screen
         private void SetDefaultDisplay() {
             EnableAllButtons();
             screenTextBox.Text = string.Empty;
             resultTextBox.Text = "0";
         }
 
+        // clean shits on screen
         private void SetDefaultTaskbarDisplay() {
             curOperatorLabel.Text = string.Empty;
             curFunctionLabel.Text = string.Empty;
