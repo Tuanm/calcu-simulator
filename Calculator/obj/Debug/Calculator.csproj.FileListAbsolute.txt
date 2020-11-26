@@ -14,9 +14,9 @@ D:\calcu-simulator\Calculator\bin\Debug\Calculator.exe
 D:\calcu-simulator\Calculator\bin\Debug\Calculator.pdb
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.csprojAssemblyReference.cache
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.Calculator.resources
-D:\calcu-simulator\Calculator\obj\Debug\Calculator.PopUp.resources
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.exe
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.pdb
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.Test.resources

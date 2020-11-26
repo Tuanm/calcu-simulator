@@ -47,33 +47,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculator.ClickHandler.cs">
+    <Compile Include="Calculator\Calculator.ClickHandler.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calculator.cs">
+    <Compile Include="Calculator\Calculator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calculator.Designer.cs">
+    <Compile Include="Calculator\Calculator.Designer.cs">
       <DependentUpon>Calculator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Calculator.Initializer.cs">
+    <Compile Include="Calculator\Calculator.Initializer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Equation.cs" />
-    <Compile Include="TwoVarEquations.cs" />
-    <Compile Include="PopUp.cs">
+    <Compile Include="PolishNotation\PolishNotation.cs" />
+    <Compile Include="SolvingEquation\Equation.cs" />
+    <Compile Include="SolvingEquation\TwoVarEquations.cs" />
+    <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PopUp.Designer.cs">
-      <DependentUpon>PopUp.cs</DependentUpon>
+    <Compile Include="Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Calculator.resx">
+    <EmbeddedResource Include="Calculator\Calculator.resx">
       <DependentUpon>Calculator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PopUp.resx">
-      <DependentUpon>PopUp.cs</DependentUpon>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

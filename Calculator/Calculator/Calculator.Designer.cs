@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calculator));
             this.screenTextBox = new System.Windows.Forms.TextBox();
             this.resultTextBox = new System.Windows.Forms.TextBox();
             this.memoryAddButton = new System.Windows.Forms.Button();
@@ -553,9 +554,9 @@
             this.exitMenuLabel.ForeColor = System.Drawing.Color.Black;
             this.exitMenuLabel.Location = new System.Drawing.Point(0, 0);
             this.exitMenuLabel.Name = "exitMenuLabel";
-            this.exitMenuLabel.Size = new System.Drawing.Size(35, 37);
+            this.exitMenuLabel.Size = new System.Drawing.Size(44, 37);
             this.exitMenuLabel.TabIndex = 33;
-            this.exitMenuLabel.Text = "×";
+            this.exitMenuLabel.Text = "╳";
             // 
             // menuLabel
             // 
@@ -643,6 +644,7 @@
             this.Controls.Add(this.menuLabel);
             this.Controls.Add(this.memorySubtractButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Calculator";

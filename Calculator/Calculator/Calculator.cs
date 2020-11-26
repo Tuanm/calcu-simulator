@@ -124,17 +124,16 @@ namespace Calculator {
                     SolveCubicEquation();
                     break;
                 case 2:
-                    Solve2VarEquations(); // TODO
+                    Solve2VarEquations();
                     break;
                 case 3:
-                    new Calculator().Show(); // TODO
+                    new Test().Show();
+                    break;
+                case 4:
+                    // TODO
                     break;
             }
         }
         #endregion
-
-        private void Help(object sender, EventArgs e) {
-            Program.ForFun(n: 10, bg: true); // TODO
-        }
     }
 }
