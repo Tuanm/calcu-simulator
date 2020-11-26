@@ -92,7 +92,11 @@ namespace Calculator {
             AddFunctionToMenu("Polish Notation");
             // Add more functions to menu here...
 
-            // AddFunctionToMenu(""); // used when there're too many controls on panel
+            // if there're too many controls on panel,
+            // add an empty string to its end
+            if (menuPanel.Controls.Count > 6) {
+                AddFunctionToMenu(string.Empty);
+            }
         }
 
         // don't ask me why the hell we need to disable all buttons
