@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace Calculator {
     partial class Calculator {
+
         private void InitFields() {
             SetDefault(); // yes, set all stuffs to their default
         }
@@ -43,19 +44,19 @@ namespace Calculator {
             // this shit is used for switching sign of the number
             signSwitcherButton.Click += (object sender, EventArgs e) => {
                 if (hasFinished) {
-                    screenTextBox.Text = string.Empty;
+                    _screen = string.Empty;
                     hasFinished = false;
                 }
-                string text = screenTextBox.Text;
+                string text = _screen;
                 try {
                     double number = -double.Parse(text);
-                    screenTextBox.Text = number.ToString();
+                    _screen = number.ToString();
                 } catch (Exception) {
                     if (text.Contains("-")) {
-                        screenTextBox.Text = string.Empty;
+                        _screen = string.Empty;
                     }
                     else {
-                        screenTextBox.Text = "-";
+                        _screen = "-";
                     }
                 }
 
@@ -71,7 +72,7 @@ namespace Calculator {
             menuLabel.Click += (object sender, EventArgs e) => {
                 ShowUpMenu(1);
             };
-            menuPanel.Size = new Size(Width * 3 / 4, Height);
+            menuPanel.Size = new Size(Width / 4 * 3, Height);
             menuPanel.Location = new Point(-menuPanel.Width, 0); // hidden
             menuPanel.Visible = true;
             menuPanel.AutoScroll = true;
@@ -166,7 +167,7 @@ namespace Calculator {
             menuPanel.Controls.Add(label);
             label.Text = text;
             label.AutoSize = true;
-            label.Left = menuPanel.Width / 2 - label.Width / 2; // senter to screen
+            label.Left = menuPanel.Width / 2 - label.Width / 2; // center to screen
             label.Top = int.Parse($"{Math.Floor(label.Height * index * 1.25)}");
             label.Click += (object sender, EventArgs e) => {
                 ShowUpMenu(-5);

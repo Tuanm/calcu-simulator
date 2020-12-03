@@ -36,14 +36,32 @@ namespace Calculator {
         private string expression;
         private bool hasFinished;
         private bool isSolvingEquation;
+        private bool isEvaluatingPN;
         private double memory; // saved by pressing M+; press MR to recall
+
+        #region Text Fields
+        private string _screen {
+            get => screenTextBox.Text;
+            set => screenTextBox.Text = value;
+        }
+
+        private string _result {
+            get => resultTextBox.Text;
+            set => resultTextBox.Text = value;
+        }
+
+        private string _operator {
+            get => curOperatorLabel.Text;
+            set => curOperatorLabel.Text = value;
+        }
+        #endregion
         #endregion
 
         #region Methods
         private void Calculate() {
-            curOperatorLabel.Text = string.Empty;
+            _operator = string.Empty;
 
-            if (!double.TryParse(screenTextBox.Text, out double operand)) {
+            if (!double.TryParse(_screen, out double operand)) {
                 SetDefaultDisplay();
                 hasFinished = true;
                 return;
@@ -90,7 +108,7 @@ namespace Calculator {
             curFunctionLabel.Text = "EQN 2";
             equation = new Equation();
             equation.N = 2;
-            resultTextBox.Text = equation.GetCurrentString();
+            _result = equation.GetCurrentString();
         }
 
         private void SolveCubicEquation() {
@@ -101,7 +119,7 @@ namespace Calculator {
             curFunctionLabel.Text = "EQN 3";
             equation = new Equation();
             equation.N = 3;
-            resultTextBox.Text = equation.GetCurrentString();
+            _result = equation.GetCurrentString();
         }
 
         private void Solve2VarEquations() {
@@ -111,7 +129,15 @@ namespace Calculator {
             calculateButton.Click += solve2VarEquations_Click;
             curFunctionLabel.Text = "2 EQNs";
             equations = new TwoVarEquations();
-            resultTextBox.Text = equations.ToString();
+            _result = equations.ToString();
+        }
+
+        private void StartPolishNotationMode() {
+            isEvaluatingPN = true;
+            hasFinished = false;
+            calculateButton.Click -= calculateButton_Click;
+            calculateButton.Click += evaluatePolishNotation_Click;
+            curFunctionLabel.Text = "PN";
         }
 
         private void StartFunction(int index) {
@@ -127,10 +153,10 @@ namespace Calculator {
                     Solve2VarEquations();
                     break;
                 case 3:
-                    new Test().Show();
+                    new Box(this).Show();
                     break;
                 case 4:
-                    // TODO
+                    StartPolishNotationMode();
                     break;
             }
         }

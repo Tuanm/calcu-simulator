@@ -19,4 +19,6 @@ D:\calcu-simulator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.exe
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.pdb
-D:\calcu-simulator\Calculator\obj\Debug\Calculator.Test.resources
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.Box.resources
+D:\calcu-simulator\Calculator\bin\Debug\FontAwesome.Sharp.dll
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.csproj.CopyComplete
