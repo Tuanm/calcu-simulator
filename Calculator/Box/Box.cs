@@ -38,8 +38,21 @@ namespace Calculator {
             this.MouseMove += this_MouseMove;
             this.exit.MouseHover += label_MouseHover;
             this.exit.MouseLeave += label_MouseLeave;
+            this.open.Click += open_Click;
             this.save.Click += save_Click;
             this.clear.Click += clear_Click;
+            foreach (Control control in this.Controls) {
+                if (control is FontAwesome.Sharp.IconButton) {
+                    control.MouseHover += (object sender, EventArgs e) => {
+                        (sender as FontAwesome.Sharp.IconButton)
+                            .IconColor = Color.Black;
+                    };
+                    control.MouseLeave += (object sender, EventArgs e) => {
+                        (sender as FontAwesome.Sharp.IconButton)
+                            .IconColor = Color.White;
+                    };
+                }
+            }
         }
 
         private void this_Click(object sender, EventArgs e) {

@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -41,22 +42,48 @@ namespace Calculator {
             points.Clear();
         }
 
+        private void open_Click(object sender, EventArgs e) {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = @"C:\Users\";
+            openFileDialog.Filter
+                = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            openFileDialog.Title = "Open Image";
+            openFileDialog.RestoreDirectory = true;
+
+            DialogResult dialogResult = openFileDialog.ShowDialog();
+            switch (dialogResult) {
+                case DialogResult.Cancel:
+                    return;
+            }
+
+            string path = openFileDialog.FileName;
+            Image image = Image.FromFile(path);
+            this.graphics.Clear(this.BackColor);
+            this.graphics.DrawImage(image, 0, 0);
+        }
+
         private void save_Click(object sender, EventArgs e) {
-            /*
+
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.InitialDirectory = @"C:\Users\";
             saveFileDialog.Filter
                 = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-            saveFileDialog.Title = "Save";
+            saveFileDialog.Title = "Save to Image";
             saveFileDialog.RestoreDirectory = true;
-            */
-            string path = @"D:\graphics.png";
-            Bitmap bitmap = new Bitmap(this.Width, this.Height);
-            Graphics g = Graphics.FromImage(bitmap);
-            Rectangle rect = this.RectangleToScreen(this.ClientRectangle);
-            Point start = new Point(rect.X, rect.Y + exit.Height);
-            Size range = new Size(this.Width, this.Height - 2 * exit.Height);
-            g.CopyFromScreen(start, Point.Empty, range);
+
+            DialogResult dialogResult = saveFileDialog.ShowDialog();
+            switch (dialogResult) {
+                case DialogResult.Cancel:
+                    return;
+            }
+            
+            Thread.Sleep(500);
+
+            string path = saveFileDialog.FileName;
+            Bitmap bitmap = new Bitmap(this.Width, this.Height, this.graphics);
+            Graphics memoryGraphics = Graphics.FromImage(bitmap);
+            memoryGraphics.CopyFromScreen(this.Location, Point.Empty, this.Size);
             bitmap.Save(path);
         }
 

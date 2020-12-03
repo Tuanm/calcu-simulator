@@ -29,8 +29,8 @@
             this.current = new System.Windows.Forms.Label();
             this.save = new FontAwesome.Sharp.IconButton();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.clear = new FontAwesome.Sharp.IconButton();
+            this.open = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // exit
@@ -65,6 +65,7 @@
             this.save.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.save.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.save.ForeColor = System.Drawing.Color.White;
             this.save.IconChar = FontAwesome.Sharp.IconChar.Image;
             this.save.IconColor = System.Drawing.Color.White;
             this.save.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -82,6 +83,7 @@
             this.clear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.clear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clear.ForeColor = System.Drawing.Color.White;
             this.clear.IconChar = FontAwesome.Sharp.IconChar.Eraser;
             this.clear.IconColor = System.Drawing.Color.White;
             this.clear.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -92,12 +94,31 @@
             this.toolTip.SetToolTip(this.clear, "Clear");
             this.clear.UseVisualStyleBackColor = true;
             // 
+            // open
+            // 
+            this.open.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.open.FlatAppearance.BorderSize = 0;
+            this.open.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.open.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.open.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.open.ForeColor = System.Drawing.Color.White;
+            this.open.IconChar = FontAwesome.Sharp.IconChar.File;
+            this.open.IconColor = System.Drawing.Color.White;
+            this.open.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.open.Location = new System.Drawing.Point(601, 0);
+            this.open.Name = "open";
+            this.open.Size = new System.Drawing.Size(63, 60);
+            this.open.TabIndex = 4;
+            this.toolTip.SetToolTip(this.open, "Open Image");
+            this.open.UseVisualStyleBackColor = true;
+            // 
             // Box
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(55F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 800);
+            this.Controls.Add(this.open);
             this.Controls.Add(this.clear);
             this.Controls.Add(this.save);
             this.Controls.Add(this.current);
@@ -127,7 +148,7 @@
         private System.Windows.Forms.Label current;
         private FontAwesome.Sharp.IconButton save;
         private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.ToolTip toolTip1;
         private FontAwesome.Sharp.IconButton clear;
+        private FontAwesome.Sharp.IconButton open;
     }
 }
