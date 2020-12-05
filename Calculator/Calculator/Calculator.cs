@@ -21,6 +21,7 @@ namespace Calculator {
             InitializeComponent();
             InitPrintableButtons();
             InitActionButtons();
+            InitializeKeyboardEvents();
             InitFields();
             InitStuffs();
             CenterToScreen();

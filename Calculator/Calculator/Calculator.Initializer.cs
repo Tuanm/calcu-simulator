@@ -68,6 +68,32 @@ namespace Calculator {
             };
         }
 
+        private void InitializeKeyboardEvents() {
+            List<Button> digitButtons = new List<Button>() {
+                digit0Button,
+                digit1Button, digit2Button, digit3Button,
+                digit4Button, digit5Button, digit6Button,
+                digit7Button, digit8Button, digit9Button
+            };
+            List<Keys> keys = new List<Keys>() {
+                Keys.D0,
+                Keys.D1, Keys.D2, Keys.D3,
+                Keys.D4, Keys.D5, Keys.D6,
+                Keys.D7, Keys.D8, Keys.D9
+            };
+            foreach (Control control in this.Controls) {
+                if (control is Button) {
+                    control.KeyDown += (object sender, KeyEventArgs e) => {
+                        foreach (Keys key in keys) {
+                            if (e.KeyCode == key) {
+                                digitButtons[keys.IndexOf(key)].PerformClick();
+                            }
+                        }
+                    };
+                }
+            }
+        }
+
         private void InitStuffs() {
             menuLabel.Click += (object sender, EventArgs e) => {
                 ShowUpMenu(1);
