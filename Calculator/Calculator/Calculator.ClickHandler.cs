@@ -241,6 +241,7 @@ namespace Calculator {
                                                          // one dot on the screen
             }
             _screen += buttonText;
+            calculateButton.Select();
         }
 
         // load stuff from memory if it exists
@@ -325,6 +326,8 @@ namespace Calculator {
                 calculateButton.Click += calculateButton_Click;
                 isSolvingEquation = false;
             }
+
+            isEvaluatingPN = false;
 
             expression = string.Empty;
             preOperand = 0;
