@@ -102,6 +102,7 @@ namespace Calculator {
                 this._graphics.FillRectangle(Brushes.Blue, temp.X - 2, temp.Y - 2, 5, 5);
                 DrawPoints();
             };
+            Form info = _helps[infoButton];
             if (_paths.Count == 3) {
                 if (_points.Count < 4) return;
                 Form details = _helps[startButton];
@@ -148,6 +149,13 @@ namespace Calculator {
                         area[i]
                     };
                 };
+                List<int> size = new List<int>() {
+                    Area(0)[0],
+                    Area(1)[0],
+                    Area(2)[0]
+                };
+                ((Help)info).SetText($"Size: {size[0]} x {size[1]} x {size[2]}\n"
+                    + $"Volume: {size[0] * size[1] * size[2]}");
                 foreach (PointF[] path in _paths) {
                     if (IsInRegion(point, path)) {
                         this._graphics.FillPolygon(
@@ -159,18 +167,15 @@ namespace Calculator {
                             point.X + this.Location.X,
                             point.Y + this.Location.Y);
                         details.Show();
-                        volumeLabel.Text = "Volume: "
-                            + $"{(int)(Math.Sqrt(Area(0)[2]) * Math.Sqrt(Area(1)[2]) * Math.Sqrt(Area(2)[2]))}";
-                        volumeLabel.Visible = true;
                         return;
                     }
                 }
                 this.pictureBox.Refresh();
                 details.Hide();
-                volumeLabel.Visible = false;
                 return;
             }
             F(_points.Count);
+            ((Help)info).SetText("No Info.");
         }
 
         private void startButton_Click(object sender, EventArgs e) {
@@ -180,6 +185,7 @@ namespace Calculator {
             this.resetButton.Visible = true;
             this.openButton.Visible = true;
             this.saveButton.Visible = true;
+            this.infoButton.Visible = true;
             this.pictureBox.Click += pictureBox_Click;
             this.pictureBox.MouseMove += pictureBox_MouseMove;
             this.TransparencyKey = Color.Empty;
@@ -239,6 +245,7 @@ namespace Calculator {
             _helps.Add(resetButton, new Help("Reset"));
             _helps.Add(openButton, new Help("Open Image"));
             _helps.Add(saveButton, new Help("Save Image"));
+            _helps.Add(infoButton, new Help("No Info."));
             foreach (Button button in _helps.Keys) {
                 button.MouseHover += (object sender, EventArgs e) => {
                     Form form = _helps[button];
@@ -312,6 +319,7 @@ namespace Calculator {
             resetButton.Visible = shown;
             openButton.Visible = shown;
             saveButton.Visible = shown;
+            infoButton.Visible = shown;
             startButton.Visible = false; // this button is only shown once
         }
 

@@ -30,7 +30,7 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.openButton = new System.Windows.Forms.Button();
-            this.volumeLabel = new System.Windows.Forms.Label();
+            this.infoButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,7 +93,7 @@
             this.minimizeButton.Name = "minimizeButton";
             this.minimizeButton.Size = new System.Drawing.Size(75, 75);
             this.minimizeButton.TabIndex = 5;
-            this.minimizeButton.Text = "~";
+            this.minimizeButton.Text = "minimize";
             this.minimizeButton.UseVisualStyleBackColor = false;
             this.minimizeButton.Visible = false;
             // 
@@ -139,23 +139,30 @@
             this.openButton.UseVisualStyleBackColor = false;
             this.openButton.Visible = false;
             // 
-            // volumeLabel
+            // infoButton
             // 
-            this.volumeLabel.AutoSize = true;
-            this.volumeLabel.Font = new System.Drawing.Font("Bradley Hand ITC", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.volumeLabel.Location = new System.Drawing.Point(12, 100);
-            this.volumeLabel.Name = "volumeLabel";
-            this.volumeLabel.Size = new System.Drawing.Size(233, 60);
-            this.volumeLabel.TabIndex = 8;
-            this.volumeLabel.Text = "Volume: 0";
-            this.volumeLabel.Visible = false;
+            this.infoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.infoButton.FlatAppearance.BorderSize = 2;
+            this.infoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.infoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.infoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.infoButton.Font = new System.Drawing.Font("Bradley Hand ITC", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.infoButton.ForeColor = System.Drawing.Color.Black;
+            this.infoButton.Location = new System.Drawing.Point(417, 12);
+            this.infoButton.Name = "infoButton";
+            this.infoButton.Size = new System.Drawing.Size(124, 75);
+            this.infoButton.TabIndex = 8;
+            this.infoButton.Text = "Information";
+            this.infoButton.UseVisualStyleBackColor = false;
+            this.infoButton.Visible = false;
             // 
             // Tuan
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(895, 613);
-            this.Controls.Add(this.volumeLabel);
+            this.Controls.Add(this.infoButton);
             this.Controls.Add(this.openButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.minimizeButton);
@@ -164,6 +171,7 @@
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.pictureBox);
             this.DoubleBuffered = true;
+            this.Font = new System.Drawing.Font("Bradley Hand ITC", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -174,7 +182,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -187,7 +194,7 @@
         private System.Windows.Forms.Button minimizeButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button openButton;
-        private System.Windows.Forms.Label volumeLabel;
+        private System.Windows.Forms.Button infoButton;
     }
 }
 

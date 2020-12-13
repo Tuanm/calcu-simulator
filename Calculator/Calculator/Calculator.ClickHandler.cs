@@ -323,15 +323,13 @@ namespace Calculator {
 
         // set all fields to their default value
         private void SetDefaultValue() {
-            if (isSolvingEquation) {
-                SetDefaultTaskbarDisplay();
-                calculateButton.Click -= solveEquation_Click;
-                calculateButton.Click -= solve2VarEquations_Click;
-                calculateButton.Click -= evaluatePolishNotation_Click;
-                calculateButton.Click += calculateButton_Click;
-                isSolvingEquation = false;
-            }
-
+            SetDefaultTaskbarDisplay();
+            calculateButton.Click -= calculateButton_Click;
+            calculateButton.Click -= solveEquation_Click;
+            calculateButton.Click -= solve2VarEquations_Click;
+            calculateButton.Click -= evaluatePolishNotation_Click;
+            calculateButton.Click += calculateButton_Click;
+            isSolvingEquation = false;
             isEvaluatingPN = false;
 
             expression = string.Empty;
