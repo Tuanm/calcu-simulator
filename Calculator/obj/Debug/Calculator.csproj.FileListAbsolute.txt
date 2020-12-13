@@ -13,12 +13,15 @@ D:\calcu-simulator\Calculator\bin\Debug\Calculator.exe.config
 D:\calcu-simulator\Calculator\bin\Debug\Calculator.exe
 D:\calcu-simulator\Calculator\bin\Debug\Calculator.pdb
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.csprojAssemblyReference.cache
-D:\calcu-simulator\Calculator\obj\Debug\Calculator.Calculator.resources
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.exe
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.pdb
-D:\calcu-simulator\Calculator\obj\Debug\Calculator.Box.resources
 D:\calcu-simulator\Calculator\bin\Debug\FontAwesome.Sharp.dll
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.csproj.CopyComplete
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.Tuan.resources
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.Cat.resources
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.Help.resources
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.Calculator.resources
+D:\calcu-simulator\Calculator\obj\Debug\Calculator.Box.resources

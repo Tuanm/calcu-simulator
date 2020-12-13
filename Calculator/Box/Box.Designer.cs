@@ -36,6 +36,7 @@
             // exit
             // 
             this.exit.AutoSize = true;
+            this.exit.BackColor = System.Drawing.Color.Transparent;
             this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exit.Font = new System.Drawing.Font("Bradley Hand ITC", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exit.Location = new System.Drawing.Point(0, 0);
@@ -60,6 +61,7 @@
             // 
             // save
             // 
+            this.save.BackColor = System.Drawing.Color.Transparent;
             this.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.save.FlatAppearance.BorderSize = 0;
             this.save.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -74,10 +76,11 @@
             this.save.Size = new System.Drawing.Size(63, 60);
             this.save.TabIndex = 2;
             this.toolTip.SetToolTip(this.save, "Save to Image");
-            this.save.UseVisualStyleBackColor = true;
+            this.save.UseVisualStyleBackColor = false;
             // 
             // clear
             // 
+            this.clear.BackColor = System.Drawing.Color.Transparent;
             this.clear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.clear.FlatAppearance.BorderSize = 0;
             this.clear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -92,10 +95,11 @@
             this.clear.Size = new System.Drawing.Size(63, 60);
             this.clear.TabIndex = 3;
             this.toolTip.SetToolTip(this.clear, "Clear");
-            this.clear.UseVisualStyleBackColor = true;
+            this.clear.UseVisualStyleBackColor = false;
             // 
             // open
             // 
+            this.open.BackColor = System.Drawing.Color.Transparent;
             this.open.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.open.FlatAppearance.BorderSize = 0;
             this.open.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -110,7 +114,7 @@
             this.open.Size = new System.Drawing.Size(63, 60);
             this.open.TabIndex = 4;
             this.toolTip.SetToolTip(this.open, "Open Image");
-            this.open.UseVisualStyleBackColor = true;
+            this.open.UseVisualStyleBackColor = false;
             // 
             // Box
             // 

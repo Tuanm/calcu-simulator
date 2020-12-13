@@ -50,19 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Box\Box.Drawer.cs">
+    <Compile Include="Calculator\Calculator.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Calculator\Calculator.ClickHandler.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Calculator\Calculator.cs">
+      <DependentUpon>Calculator.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Calculator\Calculator.Designer.cs">
       <DependentUpon>Calculator.cs</DependentUpon>
     </Compile>
     <Compile Include="Calculator\Calculator.Initializer.cs">
+      <DependentUpon>Calculator.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PolishNotation\PolishNotation.cs" />
@@ -74,6 +73,28 @@
     <Compile Include="Box\Box.Designer.cs">
       <DependentUpon>Box.cs</DependentUpon>
     </Compile>
+    <Compile Include="Box\Box.Drawer.cs">
+      <DependentUpon>Box.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Box\Tuan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Box\Tuan.Designer.cs">
+      <DependentUpon>Tuan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Box\Cat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Box\Cat.Designer.cs">
+      <DependentUpon>Cat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Box\Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Box\Help.Designer.cs">
+      <DependentUpon>Help.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Calculator\Calculator.resx">
@@ -81,6 +102,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Box\Box.resx">
       <DependentUpon>Box.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Box\Tuan.resx">
+      <DependentUpon>Tuan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Box\Cat.resx">
+      <DependentUpon>Cat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Box\Help.resx">
+      <DependentUpon>Help.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -90,6 +120,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -104,6 +135,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="chat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cat.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

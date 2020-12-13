@@ -93,8 +93,13 @@ namespace Calculator {
                 return;
             }
             string text = _screen;
-            _result = PolishNotation.PolishNotation.Evaluate(text).ToString();
-            hasFinished = true;
+            try {
+                _result = PolishNotation.PolishNotation.Evaluate(text).ToString();
+            } catch (Exception) {
+                _result = "ERROR";
+            } finally {
+                hasFinished = true;
+            }
         }
 
         // as its name

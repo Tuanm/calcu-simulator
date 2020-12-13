@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculator;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -154,7 +155,7 @@ namespace Calculator {
                     Solve2VarEquations();
                     break;
                 case 3:
-                    new Box(this).Show();
+                    new Tuan(this).Show();
                     break;
                 case 4:
                     StartPolishNotationMode();
