@@ -24,4 +24,3 @@ D:\calcu-simulator\Calculator\obj\Debug\Calculator.Tuan.resources
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.Cat.resources
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.Help.resources
 D:\calcu-simulator\Calculator\obj\Debug\Calculator.Calculator.resources
-D:\calcu-simulator\Calculator\obj\Debug\Calculator.Box.resources

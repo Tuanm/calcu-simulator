@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 
@@ -92,11 +93,28 @@ namespace Calculator {
                 hasFinished = false;
                 return;
             }
-            string text = _screen;
             try {
-                _result = PolishNotation.PolishNotation.Evaluate(text).ToString();
-            } catch (Exception) {
-                _result = "ERROR";
+                {
+                    string expression = _screen.Replace(" ", string.Empty)
+                        .Replace(operatorAddButton.Text.Trim(), "+")
+                        .Replace(operatorSubtractButton.Text.Trim(), "-")
+                        .Replace(operatorMultiplyButton.Text.Trim(), "*")
+                        .Replace(operatorDivideButton.Text.Trim(), "/");
+                    if (expression == string.Empty) {
+                        throw new Exception("Empty.");
+                    }
+                    int temp;
+                    if (!int.TryParse(expression[0].ToString(), out temp)) {
+                        if (!expression.StartsWith("(")) expression = "0" + expression;
+                    }
+                    if (!int.TryParse(expression[expression.Length - 1].ToString(), out temp)) {
+                        if (!expression.EndsWith(")")) expression = expression + "0";
+                    }
+                    _screen = expression;
+                }
+                _result = PolishNotation.Evaluate(_screen);
+            } catch (Exception exception) {
+                _result = exception.Message;
             } finally {
                 hasFinished = true;
             }

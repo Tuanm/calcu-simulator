@@ -67,16 +67,6 @@
     <Compile Include="PolishNotation\PolishNotation.cs" />
     <Compile Include="SolvingEquation\Equation.cs" />
     <Compile Include="SolvingEquation\TwoVarEquations.cs" />
-    <Compile Include="Box\Box.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Box\Box.Designer.cs">
-      <DependentUpon>Box.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Box\Box.Drawer.cs">
-      <DependentUpon>Box.cs</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Box\Tuan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,9 +89,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Calculator\Calculator.resx">
       <DependentUpon>Calculator.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Box\Box.resx">
-      <DependentUpon>Box.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Box\Tuan.resx">
       <DependentUpon>Tuan.cs</DependentUpon>
